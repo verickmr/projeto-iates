@@ -34,26 +34,12 @@
     <main>
       <div class="pagtitle">
         <div class="bgtitle"></div>
-        <h2>Acesso as mensagens
+        <h2>Mensagens
         </h2>
       </div>
-
-      <form>
-          
-          <div class="entry">
-              <label for="email">E-mail</label>
-              <input type="email" id="email" />
-            </div>
-            
-            <div class="entry">
-              <label for="senha">Senha</label>
-              <input type="password" id="senha" />
-            </div>
-        
-      </form>
-
+      <section class="grid"></section>
       <div class="buttons">
-        <button onclick="obterMensagens()" class="button">Entrar</button>
+        <button onclick="vizualizar()" class="button">Ver Mensagens</button>
       </div>
     </main>
     </div>
@@ -64,9 +50,28 @@
     <script src="js/jquery-3.6.4.min.js"></script>
 <script src="js/api.js"></script>
 <script>
-  
   const retorno = obterMensagens()
-  console.log(retorno);
+  const vizualizar = () =>{
+    
+    const main = document.querySelector('main');
+    const grid = document.querySelector('section');
+     
+  
+      main.removeChild = '.buttons'; // Limpa o conteúdo atual
+    
+    
+    retorno.map(mensagem => {
+        const card = document.createElement('div');
+        card.classList.add('card'); // Adiciona a classe 'card' ao elemento div
+        card.innerHTML = `<div>
+            <p>Nome: ${mensagem.nome}</p>
+            <p>Email: ${mensagem.email}</p>
+            <p>Mensagem: ${mensagem.mensagem}</p></div>
+           `
+        grid.appendChild(card);
+    });
+    console.log(retorno);
+}
 </script>
   </body>
 </html>

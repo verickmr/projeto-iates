@@ -71,9 +71,11 @@
   const password = document.getElementById('senha')
   objLoginSenha.email = email.value
   objLoginSenha.senha = password.value
-  retorno = validarUsuario(objLoginSenha)
+  const retorno = validarUsuario(objLoginSenha)
   if (retorno = true){
-    window.open("mensagens.html")
+    alert("Login efetuado com sucesso!")
+    window.location.href = "mensagens.html"
+  
   }
   console.log(retorno);
 }
