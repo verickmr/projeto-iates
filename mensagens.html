@@ -11,67 +11,63 @@
 
   <body>
     <div class="page">
-    <header>
-      <div id="title">
-        <img src="images/barco1.png" alt="ícone de barco" />
-        <div class="headtitle">
-          <h1>Luxo</h1>
-          <h2>Aluguel de iates</h2>
+      <header>
+        <div id="title">
+          <img src="images/barco1.png" alt="ícone de barco" />
+          <div class="headtitle">
+            <h1>Luxo</h1>
+            <h2>Aluguel de iates</h2>
+          </div>
         </div>
-      </div>
 
-      <nav>
-        <ul class="navmenu">
-          <li><a href="index.html">Página inicial</a></li>
-          <li><a href="aluguel.html">Aluguel de iates</a></li>
-          <li><a href="destinos.html">Destinos</a></li>
-          <li><a href="tripulacao.html">Tripulação</a></li>
-          <li><a href="contato.html" class="accent">Contato</a></li>
-        </ul>
-      </nav>
-    </header>
+        <nav>
+          <ul class="navmenu">
+            <li><a href="index.html">Página inicial</a></li>
+            <li><a href="aluguel.html">Aluguel de iates</a></li>
+            <li><a href="destinos.html">Destinos</a></li>
+            <li><a href="tripulacao.html">Tripulação</a></li>
+            <li><a href="contato.html" class="accent">Contato</a></li>
+          </ul>
+        </nav>
+      </header>
 
-    <main>
-      <div class="pagtitle">
-        <div class="bgtitle"></div>
-        <h2>Mensagens
-        </h2>
-      </div>
-      <section class="grid"></section>
-      <div class="buttons">
-        <button onclick="vizualizar()" class="button">Ver Mensagens</button>
-      </div>
-    </main>
+      <main>
+        <div class="pagtitle">
+          <div class="bgtitle"></div>
+          <h2>Mensagens</h2>
+        </div>
+        <section class="grid"></section>
+        <div class="buttons">
+          <button onclick="vizualizar()" class="button">Ver Mensagens</button>
+        </div>
+      </main>
     </div>
 
     <footer>
       <p>© 2023 por Luxo aluguel de iates</p>
     </footer>
     <script src="js/jquery-3.6.4.min.js"></script>
-<script src="js/api.js"></script>
-<script>
-  const retorno = obterMensagens()
-  const vizualizar = () =>{
-    
-    const main = document.querySelector('main');
-    const grid = document.querySelector('section');
-     
-  
-      main.removeChild = '.buttons'; // Limpa o conteúdo atual
-    
-    
-    retorno.map(mensagem => {
-        const card = document.createElement('div');
-        card.classList.add('card'); // Adiciona a classe 'card' ao elemento div
-        card.innerHTML = `<div>
-            <p>Nome: ${mensagem.nome}</p>
-            <p>Email: ${mensagem.email}</p>
-            <p>Mensagem: ${mensagem.mensagem}</p></div>
-           `
-        grid.appendChild(card);
-    });
-    console.log(retorno);
-}
-</script>
+    <script src="js/api.js"></script>
+    <script>
+      const retorno = obterMensagens();
+      const vizualizar = () => {
+        const main = document.querySelector("main");
+        const grid = document.querySelector("section");
+
+        main.removeChild = ".buttons"; // Limpa o conteúdo atual
+
+        retorno.map((mensagem) => {
+          const card = document.createElement("div");
+          card.classList.add("card"); // Adiciona a classe 'card' ao elemento div
+          card.innerHTML = `<div>
+          <p> <span>Nome: </span>${mensagem.nome}</p>
+            <p><span>Email: </span>${mensagem.email}</p>
+            <p><span>Mensagem: </span>${mensagem.mensagem}</p></div>
+           `;
+          grid.appendChild(card);
+        });
+        console.log(retorno);
+      };
+    </script>
   </body>
 </html>

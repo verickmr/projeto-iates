@@ -398,3 +398,8 @@ footer p {
     padding: 10px;
 
 }
+
+.card div p {
+    color: var(--ocher);}
+.card div span{
+    color: var(--darkblue)};
